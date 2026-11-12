@@ -1,7 +1,7 @@
-﻿Codex 用量监控 2.5.9 · 通用发布版
+﻿Codex 用量监控 2.6.0 · 通用发布版
 
 一、安装与启动
-运行 CodexUsageMonitor-2.5.9-win-x64-setup.exe，按中文向导完成安装。默认仅为当前用户安装在 %LOCALAPPDATA%\Programs\CodexUsageMonitor.Pearl，可从桌面或开始菜单启动。
+运行 CodexUsageMonitor-2.6.0-win-x64-setup.exe，按中文向导完成安装。默认仅为当前用户安装在 %LOCALAPPDATA%\Programs\CodexUsageMonitor.Pearl，可从桌面或开始菜单启动。
 支持 Windows 10（1607 或更新版本）/ Windows 11 的 Intel、AMD 64 位电脑，需要 .NET Framework 4.8 或兼容版本；不支持 32 位 Windows、Windows ARM、Windows Server、macOS 和 Linux。
 安装包不会安装 Codex。账户数据需要本机可用的 Codex 安装和登录状态。
 
@@ -33,3 +33,5 @@ Ctrl+O 浮窗开关；Ctrl+Q 完全退出；Ctrl+E 环境检测与路径设置�
 本软件是独立项目，不是 OpenAI 官方产品，不保证覆盖未测试的 Codex 版本或所有账户类型。
 本版本未签名；Windows 可能显示未知发布者/信誉提示。请核对来源和随包提供的 SHA-256 校验值。校验值用于确认文件一致性，不能代替可信下载来源。
 安装向导使用 Inno Setup（https://jrsoftware.org/）。
+
+软件更新：默认自动检查造物集发布的新版，可在设置中关闭或手动检查。安装前需确认，更新会保留设置；检查时连接造物集或 GitHub。
