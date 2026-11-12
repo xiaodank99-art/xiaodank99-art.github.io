@@ -16,7 +16,8 @@
       "prefix": "https://raw.githubusercontent.com/xiaodank99-art/xiaodank99-art.github.io/main/assets/extra-f298ede5791b2210-1-2-24-part-",
       "parts": 2,
       "cover": "",
-      "status": "active"
+      "status": "removed",
+      "removed_at": "2026-11-13 00:44"
     }
   ],
   "hidden_builtins": []
