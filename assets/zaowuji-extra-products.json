@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "products": [
+    {
+      "id": "f298ede5791b2210",
+      "name": "红果短剧（测试）",
+      "version": "1.2.24",
+      "description": "红果短剧 PC 播放器，作者：洋滨。此条目仅用于上传功能测试。",
+      "platform": "Windows 64 位（兼容性待验证）",
+      "notes": "首次上传，用于测试网站发布和下架功能；软件原作者为洋滨。",
+      "date": "2026-11-13 00:13",
+      "size": 27335680,
+      "sha256": "c9dd0726d59d4ce63974524705e2d23539ee980f699ae207f29f7e2d1d0d3c19",
+      "suffix": ".exe",
+      "url": "https://github.com/xiaodank99-art/xiaodank99-art.github.io/releases/download/extra-f298ede5791b2210-v1.2.24/extra-f298ede5791b2210-1.2.24.exe",
+      "prefix": "https://raw.githubusercontent.com/xiaodank99-art/xiaodank99-art.github.io/main/assets/extra-f298ede5791b2210-1-2-24-part-",
+      "parts": 2,
+      "cover": "",
+      "status": "active"
+    }
+  ],
+  "hidden_builtins": []
+}
