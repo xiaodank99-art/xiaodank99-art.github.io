@@ -1,0 +1,68 @@
+name: Zaowuji fast Pages deploy
+on:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: zaowuji-pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/
+            /assets/*
+            !/assets/*.bin
+            !/assets/*.exe
+      - id: binary-key
+        run: |
+          key=$(git ls-tree -r HEAD -- assets | grep -E '\.(bin|exe)$' | sha256sum | cut -d ' ' -f 1)
+          echo "key=$key" >> "$GITHUB_OUTPUT"
+      - id: binary-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .binary-cache
+          key: binaries-v1-${{ steps.binary-key.outputs.key }}
+      - name: Fetch binary assets on cache miss
+        if: steps.binary-cache.outputs.cache-hit != 'true'
+        run: |
+          git sparse-checkout set --no-cone '/*' '/assets/*'
+          mkdir -p .binary-cache
+          find assets -type f \( -name '*.bin' -o -name '*.exe' \) -exec cp --parents -t .binary-cache {} +
+      - uses: actions/cache/save@v4
+        if: steps.binary-cache.outputs.cache-hit != 'true'
+        with:
+          path: .binary-cache
+          key: binaries-v1-${{ steps.binary-key.outputs.key }}
+      - name: Assemble and validate
+        run: |
+          cp -a .binary-cache/assets/. assets/
+          git ls-tree -r HEAD -- assets | grep -E '\.(bin|exe)$' | while read -r mode type sha path; do
+            test -f "$path"
+            test "$(git hash-object "$path")" = "$sha"
+          done
+          test -f index.html
+          test -f software.html
+          test -f assets/zaowuji-extra-products.json
+          test -f assets/website-knot.png
+          rm -rf .binary-cache
+          du -sh --exclude=.git .
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
