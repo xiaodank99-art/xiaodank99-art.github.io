@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "products": {
+    "codex-monitor": {
+      "name": "Codex 用量监控",
+      "entries": [
+        {
+          "version": "2.6.1",
+          "date": "2026-11-13 01:50",
+          "notes": "更新 Codex 用量监控图标，保留原有功能和自动更新。",
+          "source": "https://github.com/xiaodank99-art/xiaodank99-art.github.io/commit/9db0709a5b43420f1b59fe268d872fc58ed52cd3"
+        },
+        {
+          "version": "2.6.0",
+          "date": "2026-11-12 20:32",
+          "notes": "新增联网检查更新，安装前询问，并保留个人设置。",
+          "source": "https://github.com/xiaodank99-art/xiaodank99-art.github.io/commit/67b1c4748e17ac8f4c04e686f2af1b3e585d8348"
+        },
+        {
+          "version": "2.5.9",
+          "date": "2026-11-12 16:30",
+          "notes": "修复浮窗字体异常可能导致主窗口无法操作的问题。",
+          "source": "https://github.com/xiaodank99-art/xiaodank99-art.github.io/commit/25161246010e57f958c97b857c7cd092d423df5b",
+          "date_source": "commit"
+        }
+      ]
+    },
+    "peripheral-battery": {
+      "name": "外设电量监控",
+      "entries": [
+        {
+          "version": "1.3.8",
+          "date": "2026-11-13 03:59",
+          "notes": "修正 VGN Neon75 Turbo 2.4G 键盘已有电量应答却显示“—”的问题，依据目标设备真实应答调整解析，并保留两次一致校验。报告重放与自动化检查通过；新版连续读取、休眠重连及原厂电量对照仍需目标设备复测。保留 NK mouse NANO 读取、托盘操作和签名自动更新。",
+          "source": "https://github.com/xiaodank99-art/xiaodank99-art.github.io/commit/9db0709a5b43420f1b59fe268d872fc58ed52cd3"
+        },
+        {
+          "version": "1.3.7",
+          "date": "2026-11-13 03:22",
+          "notes": "修复托盘双击无法打开主面板；为 NK mouse NANO 及 VGN Neon75 Turbo 的 2.4G 接收器增加电量读取。这两款设备的新版适配尚需对应设备实机验证；无法确认电量时显示“—”。保留自动检查更新和现有界面。",
+          "source": "https://github.com/xiaodank99-art/xiaodank99-art.github.io/commit/3122d41248ffc4c405248846fb2f45dc6e8e391f"
+        },
+        {
+          "version": "1.3.5",
+          "date": "2026-11-13 02:46",
+          "notes": "改善 64 位 Windows 安装兼容性与不支持系统的提示；保留原有界面、图标、功能和自动更新。",
+          "source": "https://github.com/xiaodank99-art/xiaodank99-art.github.io/commit/c59ed00d8d7696f5193f26b4c294173d503fc2ad"
+        },
+        {
+          "version": "1.3.4",
+          "date": "2026-11-13 02:24",
+          "notes": "优化安装包和运行组件的磁盘占用，保持现有界面、刷新和自动更新功能。",
+          "source": "https://github.com/xiaodank99-art/xiaodank99-art.github.io/commit/0db3ce48748102386b8ad8dbfd1019105e59f8f0"
+        },
+        {
+          "version": "1.3.3",
+          "date": "2026-11-13 02:14",
+          "notes": "优化安装包与磁盘占用，保持现有界面、刷新和自动更新功能。",
+          "source": "https://github.com/xiaodank99-art/xiaodank99-art.github.io/commit/b902817299612f29b981d6c2089e39b7efcbde20"
+        },
+        {
+          "version": "1.3.2",
+          "date": "2026-11-13 01:53",
+          "notes": "更新外设电量监控图标，保留原有功能和自动更新。",
+          "source": "https://github.com/xiaodank99-art/xiaodank99-art.github.io/commit/0a8f1316fca2d8893e4e971e999a7731327c9b66"
+        },
+        {
+          "version": "1.3.1",
+          "date": "2026-11-12 23:10",
+          "notes": "修复错误报告默认保存目录的问题，完善更新与设备读取的检查。",
+          "source": "https://github.com/xiaodank99-art/xiaodank99-art.github.io/commit/d0aefa61e37adc1298d811e54fc80e667344db37"
+        },
+        {
+          "version": "1.3.0",
+          "date": "2026-11-12 20:39",
+          "notes": "新增联网检查更新，安装前询问，并保留个人设置。",
+          "source": "https://github.com/xiaodank99-art/xiaodank99-art.github.io/commit/affae727abacb33261d881cad3dc27e2206f3185",
+          "date_source": "commit"
+        },
+        {
+          "version": "1.2.0",
+          "date": "2026-11-12 16:30",
+          "notes": "重新设计主面板、迷你面板与设置页，加入粉色主题，并保留浅色和深色选择。",
+          "source": "https://github.com/xiaodank99-art/xiaodank99-art.github.io/commit/25161246010e57f958c97b857c7cd092d423df5b",
+          "date_source": "commit"
+        }
+      ]
+    },
+    "f298ede5791b2210": {
+      "name": "红果短剧（测试）",
+      "entries": [
+        {
+          "version": "1.2.24",
+          "date": "2026-11-13 00:13",
+          "notes": "首次上传，用于测试网站发布和下架功能；软件原作者为洋滨。",
+          "source": "https://github.com/xiaodank99-art/xiaodank99-art.github.io/commit/2dffdcc6d9f5c3b32fb661ad1aeb81abf1180fb1"
+        }
+      ]
+    }
+  }
+}
