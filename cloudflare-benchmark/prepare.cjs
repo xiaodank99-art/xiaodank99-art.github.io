@@ -1,0 +1,11 @@
+const fs=require('fs'),path=require('path'),crypto=require('crypto');
+const out='build-output', assets='assets';
+if(fs.existsSync(out))throw Error('Test output already exists');
+fs.mkdirSync(path.join(out,'small'),{recursive:true});fs.mkdirSync(path.join(out,'large'),{recursive:true});
+const parts=[1,2,3].map(i=>fs.readFileSync(path.join(assets,'battery-update-1-3-8-part-'+String(i).padStart(2,'0')+'.bin')));
+const data=Buffer.concat(parts),hash=crypto.createHash('sha256').update(data).digest('hex');
+if(data.length!==56823029||hash!=='e2e1d05b61786b35a7e6599da8cdc2ad1adfd25398a227b026c762817c48da65')throw Error('Source mismatch');
+for(let i=0;i<parts.length;i++)fs.writeFileSync(path.join(out,'large','part-'+String(i+1).padStart(2,'0')+'.bin'),parts[i]);
+for(let i=0;i<Math.ceil(data.length/1048576);i++)fs.writeFileSync(path.join(out,'small','part-'+String(i+1).padStart(2,'0')+'.bin'),data.subarray(i*1048576,Math.min((i+1)*1048576,data.length)));
+fs.copyFileSync(path.join('cloudflare-benchmark','index.html'),path.join(out,'index.html'));
+console.log('Benchmark input verified:',data.length,'bytes,',Math.ceil(data.length/1048576),'small parts.');

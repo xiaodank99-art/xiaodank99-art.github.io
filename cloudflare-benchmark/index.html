@@ -1,0 +1,23 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>下载并发对比测试</title>
+<h1>下载并发对比测试</h1><p>仅下载到浏览器内存并校验，不安装软件。请一次只运行一个测试。</p>
+<button data-test="large">三段并行</button><button data-test="6">小分片 · 6 并行</button><button data-test="12">小分片 · 12 并行</button><button data-test="24">小分片 · 24 并行</button><button id="stop" disabled>停止测试</button><p role="status" id="status">等待测试</p>
+<script>
+const buttons=[...document.querySelectorAll('[data-test]')],status=document.querySelector('#status'),stop=document.querySelector('#stop');
+const total=56823029,expected='e2e1d05b61786b35a7e6599da8cdc2ad1adfd25398a227b026c762817c48da65';
+async function run(mode){
+ const files=mode==='large'?Array.from({length:3},(_,i)=>'large/part-'+String(i+1).padStart(2,'0')+'.bin'):Array.from({length:Math.ceil(total/1048576)},(_,i)=>'small/part-'+String(i+1).padStart(2,'0')+'.bin');
+ const concurrency=mode==='large'?3:Number(mode),results=new Array(files.length),ctl=new AbortController(),start=performance.now();
+ let received=0,next=0,done=0,last=start,reason='';buttons.forEach(b=>b.disabled=true);stop.disabled=false;
+ stop.onclick=()=>{reason='已停止';ctl.abort()};status.textContent='正在准备下载…';
+ const timer=setInterval(()=>{const secs=(performance.now()-start)/1000;status.textContent=`已接收 ${(received/1048576).toFixed(2)} / ${(total/1048576).toFixed(2)} MiB，完成 ${done}/${files.length} 段，已用 ${secs.toFixed(0)} 秒，平均 ${(received/1048576/Math.max(secs,.001)).toFixed(2)} MiB/s`;if(performance.now()-last>45000){reason='连续 45 秒没有收到数据';ctl.abort()}},1000);
+ try{
+  async function worker(){while(true){const i=next++;if(i>=files.length)return;const response=await fetch(files[i],{cache:'no-store',signal:ctl.signal});if(!response.ok||!response.body)throw Error('文件请求失败');const reader=response.body.getReader(),chunks=[];while(true){const {done,value}=await reader.read();if(done)break;received+=value.length;last=performance.now();if(received>total)throw Error('数据过多');chunks.push(value)}results[i]=new Blob(chunks);done++}}
+  await Promise.all(Array.from({length:Math.min(concurrency,files.length)},worker));clearInterval(timer);
+  const blob=new Blob(results);if(blob.size!==total)throw Error('文件大小不符');status.textContent='下载完成，正在校验…';
+  const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',await blob.arrayBuffer())),x=>x.toString(16).padStart(2,'0')).join('');
+  if(hash!==expected)throw Error('文件校验失败');const sec=(performance.now()-start)/1000;status.textContent=`${mode==='large'?'三段并行':mode+' 并行'}：校验通过，耗时 ${sec.toFixed(2)} 秒，平均 ${(total/1048576/sec).toFixed(2)} MiB/s。`;
+ }catch(e){ctl.abort();status.textContent=`测试未完成：${reason||e.message}；已收到 ${(received/1048576).toFixed(2)} MiB。`}
+ finally{clearInterval(timer);buttons.forEach(b=>b.disabled=false);stop.disabled=true;stop.onclick=null}
+}
+buttons.forEach(b=>b.addEventListener('click',()=>run(b.dataset.test)));
+</script></html>
