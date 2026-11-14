@@ -6,6 +6,13 @@
   const decode=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
   const hex=bytes=>Array.from(new Uint8Array(bytes),b=>b.toString(16).padStart(2,'0')).join('');
   function product(link){
+    if(link.hasAttribute('data-zaowuji-extra')){
+      const id=link.dataset.zaowujiExtra, version=link.dataset.version, size=Number(link.dataset.size), hash=link.dataset.hash;
+      if(!/^[a-f0-9]{16}$/.test(id||'') || !/^\d+\.\d+\.\d+$/.test(version||'') || !Number.isSafeInteger(size) || size<1 || size>500000000 || !/^[a-f0-9]{64}$/.test(hash||''))return null;
+      const expected='https://github.com/xiaodank99-art/xiaodank99-art.github.io/releases/download/extra-'+id+'-v'+version+'/extra-'+id+'-'+version;
+      if(!['.exe','.msi','.zip'].some(ext=>link.href===expected+ext))return null;
+      return {id:'extra-'+id,version,size,hash,extra:true};
+    }
     if(link.hasAttribute('data-battery-fast')){
       const found=link.href.match(/\/battery-v(\d+\.\d+\.\d+)\//);
       return found&&{id:'peripheral-battery',version:found[1]};
@@ -46,18 +53,20 @@
     },1000);
     try{
       if(!window.crypto||!crypto.subtle)throw Error('浏览器不支持安全校验');
-      const [info,metaResponse]=await Promise.all([signedInfo(item,controller.signal),fetch(mirror+item.id+'/latest.json',{cache:'no-store',signal:controller.signal})]);
+      const [info,metaResponse]=await Promise.all([item.extra?Promise.resolve({size:item.size,hash:item.hash}):signedInfo(item,controller.signal),fetch(mirror+item.id+'/latest.json',{cache:'no-store',signal:controller.signal})]);
       if(!metaResponse.ok)throw Error('下载线路不可用');
       const meta=await metaResponse.json();
-      if(meta.id!==item.id||meta.version!==item.version||meta.size!==info.size||meta.sha256!==info.hash||!Array.isArray(meta.parts)||meta.parts.length<1||meta.parts.length>20||!meta.parts.every((p,i)=>p==='part-'+String(i+1).padStart(2,'0')+'.bin'))throw Error('下载版本尚未同步');
+      if(meta.id!==item.id||meta.version!==item.version||meta.size!==info.size||meta.sha256!==info.hash||!Array.isArray(meta.parts)||meta.parts.length<1||meta.parts.length>25||!meta.parts.every((p,i)=>p==='part-'+String(i+1).padStart(2,'0')+'.bin'))throw Error('下载版本尚未同步');
       lastProgress=performance.now();started=performance.now();
-      const parts=await Promise.all(meta.parts.map(async name=>{
+      const parts=new Array(meta.parts.length);let next=0;
+      async function worker(){while(true){const index=next++;if(index>=meta.parts.length)return;const name=meta.parts[index];
         const response=await fetch(mirror+item.id+'/'+item.version+'/'+name,{cache:'no-store',signal:controller.signal});
         if(!response.ok||!response.body)throw Error('下载线路不可用');
         const reader=response.body.getReader(),pieces=[];
         while(true){const {done,value}=await reader.read();if(done)break;pieces.push(value);received+=value.byteLength;lastProgress=performance.now();if(received>info.size)throw Error('安装包大小异常')}
-        return new Blob(pieces);
-      }));
+        parts[index]=new Blob(pieces);
+      }}
+      await Promise.all(Array.from({length:Math.min(item.extra?3:meta.parts.length,meta.parts.length)},worker));
       clearInterval(timer);
       const blob=new Blob(parts,{type:'application/octet-stream'});
       if(blob.size!==info.size)throw Error('安装包大小不一致');
