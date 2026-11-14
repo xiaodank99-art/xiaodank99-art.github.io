@@ -2,6 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const publicKey=crypto.createPublicKey({key:{kty:'RSA',n:'1dGjCGaG03u6zqLSLY0FF3FP__WLVLwXnG3j_6jYe0DNgmOIq96UU5TTMp9qRF0UsOlmrrFFwvCKggRF7ZdAEW-ZCfagm_iXXfW9t5LivpNhcxO04liMu7PskiccHKnapCmcsWYnEXpT7TPOv5_57mm6fLJzEzCPagxGMHmxBm9oanJAVcI1Gtvu8pN9jnz1DFvi5PmYWUtSnzJkpfjQzSocUySYSgxtVcS6a-0y0ytSy_eDLj8HDbkuoAomTwZxlEaPCTXiGLm4sDTD7Wn3KrMItTk95QTRFwuWJ-yEeGgNK_TXVJ19APj0NnUJsFvzIFrcPtzkB_kgTFQFdvghQcZ-kIem90FBOm3syP51fNP_LRgZ6m49Y75LJvb0uNuG9rVe_2PXLGxAXXlWhpUx-Q8OjgXrHEYMEAfLAtPRVYJ2S2u_aWD7c5LGYIxsrEfF7VZcFEK6H7kpz9ldH8UmsM7vQbFeUnBFYLuVmzFW39LASeDh6fDWnFGC7DlWAg8h',e:'AQAB'},format:'jwk'});
 const [source, output] = process.argv.slice(2);
 if (!source || !output) throw Error('Usage: node build.cjs <snapshot> <new-output-directory>');
 if (fs.existsSync(output)) throw Error('Output directory must not already exist');
@@ -13,6 +14,7 @@ const MAX = 20*1024*1024;
 const summaries=[];
 for (const spec of specs) {
  const lines=fs.readFileSync(path.join(source,spec.manifest),'utf8').trim().split(/\r?\n/);
+ if(lines.length!==2 || !crypto.verify('RSA-SHA256',Buffer.from(lines[0],'base64'),publicKey,Buffer.from(lines[1],'base64'))) throw Error('Invalid signature for '+spec.id);
  const fields=Buffer.from(lines[0],'base64').toString('utf8').trim().split(/\r?\n/);
  const [format,id,version,sizeText,sha,,prefix,countText]=fields;
  const size=Number(sizeText), count=Number(countText);
