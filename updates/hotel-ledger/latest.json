@@ -1,8 +1,8 @@
 {
-  "version": "1.2.36",
-  "package": "hotel-ledger-v1.2.36.exe",
-  "sha256": "8af14dffe0a0ff206c729685a046913f0cd1009890eff45813bb52d5310f129e",
-  "size": 216576,
-  "notes": "新增设备同步试用入口，可用独立模拟账本测试安卓和 Windows 双向同步，原本机账本按原目录使用。",
-  "signature": "JBJbIkCpUhh46trK/VSJKX0Oh+xL7CLWu+1lxvYFlBLKjm/vBY0l/Qy0Xtk2TcQYU/pExmcKvKUEQaNWJBoyyKRktC8602xykQDuXFQGv4fPpkD4Re/HxJCgJ6FrH/H6LgAvqZitid2XlsxF42PunViEak/HnnnUgNF09wSqPmGJRk3eiONbuTmBC0QHvY0Wr1j2Sz9WF6JX7URh/R8YEtMHV5SpM1fpXcH2C1crD7f+gEfGi/ED74+fr5GEAycYMN94z75CGlAlvqPWGv3J8UQs9ztFoIA1YCWasvUe8YInfCGHYZzJQaJd8/biWwHYvGqNQZ+3wsDFpiPl5xYPqdoFYQg9AQ+RW60CJ9r3aFbF1bETEUvc+6lPI5FX2UGVhmrApptV7mAZ6/WGoCFggkV03ndZw2ua9OiAWQ/Z0O0hLdgkfyhpuaBZAGJdpxJg4ELB7SitV0iAkMZX+WlZ2yF7+o/hmn/2x8rQBD00d+ZrBAgy0y8HS6JdcLSR0/tq"
+  "version": "1.2.37",
+  "package": "hotel-ledger-v1.2.37.exe",
+  "sha256": "7594f30d2c9b080033f78391988f2894f77024b8a64629caa2d319e31105b77a",
+  "size": 222720,
+  "notes": "设备同步支持正式账本，前台确认启用后可绑定安卓。启用前沿用本机账本。",
+  "signature": "YO4HFdav0Qth95ZfWhv6v0cT7XJamx6IeTp4Ra5dVVtMwt3kjxH7aQYg0Zap0DDXdlkiMKS64jEloP9vZECyZWnDgQiiuWyeXh+fJU7ggWCvt1+DgEpxhJIBsPW6lAhhUk42No/NzHrrmr5mu+WMR4fupow1bSnFo3115okDEJqkfwIKUVnlMOUzG4aDQVWVjrwu7Gi5Vph3UjIhUxTZNzRYLVW9rYaQuVr59KJvg+r014VvIeqsCskzmBJD5jybQgoFdXY+6n+AuB+gKuUZqO8BlWeFRTLRQaNBVikKMevVXdr163naeqgcBYtpMQIcT/P4i/zatmvuo7cbi2+8jcH/3V7IoFDxWfrBYERy0R+P4bv0TlA9LMb6QT3FocCo8v2oUYRnechuIJpI1fGz0fbHP9K7W38WP7S2fbLtvzLhVULSdzdvF0OtxpR2+TSTyOwHfihIu1VCpVyrv2ZNv5mLoB1zMSD/B2MxjL/wp4jWnUNQZWwNzKOBBC1ciHKK"
 }
