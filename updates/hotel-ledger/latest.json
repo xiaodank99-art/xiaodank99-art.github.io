@@ -1,8 +1,8 @@
 {
-  "version": "1.2.32",
-  "package": "hotel-ledger-v1.2.32.exe",
-  "sha256": "804e820d7d728b2583030cfe06eb5c6396be302c255f51be3801c89fc20ccf63",
-  "size": 204800,
-  "notes": "远程更新验证版。功能与 v1.2.31 一致，用于验证更新提醒、下载、账本备份和安装。",
-  "signature": "qOd8k2il8CiDf6H4TC9uw154CluCCqMzP6r6/uaYdftFoaxF15iQ4kxJitgSf/xa6xAW7dFH//ny790An9+9kfSwFKsRjwgXpjMMbHXjJUM+dx/D7rI1C9uT4pK930QPC1/LwMtGW4vSatXCcdKQWADnWpvsxTgxNhyvn8kIhJAgV010xP1Ly9KvXKQWD9LAEo6Mku9JOJMMIR0s3deZ99rG38ELZUe+T/J2BoIfB5VLX4M4bzYLLFQvTX2xbUFG80i+pm5IMcnUC6WTXLiEHXzkGvcdOFUhVkI8WHQm5IS4Gx2qCGwr1oHv65btqodNWyTE24pJgUU9g/cYGeFdezWGQ4QvCMJbZHV9z+0XEfwkIiLujiOEPHBqFH16o/coJ76sHTvUygW+fPa/mZwZgc2QEuv7/tVIH4lX0nGYw9Xh/6iqljpsugUEJCnvRn99tge+3PdE0Ec2XUm+OmThwWtblRXRbM7KpnwgbooxcS/gBnpLM9C/qq9YPEx/+DYG"
+  "version": "1.2.33",
+  "package": "hotel-ledger-v1.2.33.exe",
+  "sha256": "55f1c7a1866117cfb7ac318373a3756407934cff7c9c5fb382a5cb77aa9fb22d",
+  "size": 208384,
+  "notes": "启动时自动检查更新；有新版时自动安装并重启，断网时照常记账。",
+  "signature": "hvzsa4cw/JofCkNBgxURTCQccs0kaiBf4n5YGMlA2TyHVIquA0l4aYYjsT6DN2A5e/LReyq//6ZW1BXlhaVoq4P7+jQVvI6nVGmGNs1S2qQpc3iO8k69YDsbQKBSvF/Y4aAMhVbbxsWgqZZGtmiDLcadYX1mlbGlOecv9VABIRNDs3Wx9g4sazTm8m5O5TqMKixFUZvnVTu+Wby0WdpR5ZkdVVJinXqFYa46tX+A4Ng5Gjh2XX0qfKfa2Hzgtoj4b7/nhK2Pq367TnDzXbLtR+L1jeN8avBp4erHJUTkDOodz8uBG1dcxNAjOqZRIqbS7Xfbk1/4NdNusRlMajVEFA+guec8BGm7/WTvxP0IlbkAeGyzaBSR4zHhHIR4ZeS31nf8yRF1gcerXA8s4sxGb0V5IxOMOBNo6dJMgJdf+Lj+qn5MgIxJ8jDjrq8bokHBZb95r00ZEG+pUQGRtsn92eEqC3aiSfrrQRffTclZCK08pQAh6GQfZ0qod/2HaR95"
 }
