@@ -84,9 +84,4 @@
       console.error(error);
     }finally{button.disabled=false}
   }));
-  document.querySelectorAll('[data-battery-fast]').forEach(link=>link.addEventListener('click',event=>{
-    const card=link.closest('.product, .app-intro');
-    const button=card&&card.querySelector('[data-battery-backup]');
-    if(button){event.preventDefault();if(!button.disabled)button.click()}
-  }));
 })();

@@ -2,7 +2,6 @@
   'use strict';
   const mirror='https://zwj-download-sync-20261115.pages.dev/downloads/';
   const publicModulus='1dGjCGaG03u6zqLSLY0FF3FP__WLVLwXnG3j_6jYe0DNgmOIq96UU5TTMp9qRF0UsOlmrrFFwvCKggRF7ZdAEW-ZCfagm_iXXfW9t5LivpNhcxO04liMu7PskiccHKnapCmcsWYnEXpT7TPOv5_57mm6fLJzEzCPagxGMHmxBm9oanJAVcI1Gtvu8pN9jnz1DFvi5PmYWUtSnzJkpfjQzSocUySYSgxtVcS6a-0y0ytSy_eDLj8HDbkuoAomTwZxlEaPCTXiGLm4sDTD7Wn3KrMItTk95QTRFwuWJ-yEeGgNK_TXVJ19APj0NnUJsFvzIFrcPtzkB_kgTFQFdvghQcZ-kIem90FBOm3syP51fNP_LRgZ6m49Y75LJvb0uNuG9rVe_2PXLGxAXXlWhpUx-Q8OjgXrHEYMEAfLAtPRVYJ2S2u_aWD7c5LGYIxsrEfF7VZcFEK6H7kpz9ldH8UmsM7vQbFeUnBFYLuVmzFW39LASeDh6fDWnFGC7DlWAg8h';
-  const busy=new WeakSet();
   const decode=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
   const hex=bytes=>Array.from(new Uint8Array(bytes),b=>b.toString(16).padStart(2,'0')).join('');
   function product(link){
@@ -41,10 +40,10 @@
     if(fields.length!==8||fields[0]!=='ZAOWUJI-UPDATE-1'||fields[1]!==item.id||fields[2]!==item.version||!Number.isSafeInteger(size)||size<1||size>200000000||!/^[a-f0-9]{64}$/.test(fields[4]))throw Error('网页与更新信息不一致');
     return {size,hash:fields[4]};
   }
-  async function download(link,item){
+  async function download(link,item,button){
     const {status,container}=statusFor(link),controller=new AbortController();
     let lastProgress=performance.now(),received=0,reason='',timer,started=performance.now();
-    busy.add(link);link.setAttribute('aria-busy','true');
+    button.disabled=true;button.setAttribute('aria-busy','true');
     status.textContent=' 正在准备下载…';
     timer=setInterval(()=>{
       const seconds=(performance.now()-started)/1000;
@@ -73,20 +72,28 @@
       status.textContent=' 正在校验安装包…';
       if(hex(await crypto.subtle.digest('SHA-256',await blob.arrayBuffer()))!==info.hash)throw Error('安装包校验失败');
       const seconds=Math.max((performance.now()-started)/1000,.001),url=URL.createObjectURL(blob),a=document.createElement('a');
-      a.href=url;a.download=decodeURIComponent(new URL(link.href).pathname.split('/').pop());a.dataset.cfBypass='1';document.body.appendChild(a);a.click();a.remove();
+      a.href=url;a.download=decodeURIComponent(new URL(link.href).pathname.split('/').pop());document.body.appendChild(a);a.click();a.remove();
       setTimeout(()=>URL.revokeObjectURL(url),60000);
       status.textContent=` 已校验，平均 ${(blob.size/1048576/seconds).toFixed(2)} MiB/s，请查看浏览器下载。`;
     }catch(error){
       controller.abort();status.textContent=' 加速线路暂不可用，正在使用备用下载…';
       const backup=item.id==='peripheral-battery'&&container.querySelector('[data-battery-backup]');
       if(backup&&!backup.disabled)backup.click();
-      else{const a=document.createElement('a');a.href=link.href;a.download=link.getAttribute('download')||'';a.dataset.cfBypass='1';document.body.appendChild(a);a.click();a.remove()}
+      else{const a=document.createElement('a');a.href=link.href;a.download=link.getAttribute('download')||'';document.body.appendChild(a);a.click();a.remove()}
       console.warn('加速下载失败：',reason||error.message);
-    }finally{clearInterval(timer);busy.delete(link);link.removeAttribute('aria-busy')}
+    }finally{clearInterval(timer);button.disabled=false;button.removeAttribute('aria-busy')}
   }
-  document.addEventListener('click',event=>{
-    const link=event.target.closest('a');if(!link||link.dataset.cfBypass||event.defaultPrevented||event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
-    const item=product(link);if(!item)return;
-    event.preventDefault();event.stopImmediatePropagation();if(!busy.has(link))download(link,item);
-  },true);
+  document.querySelectorAll('a.button.primary.download').forEach(link=>{
+    const item=product(link);
+    if(!item)return;
+    const {status}=statusFor(link);
+    const separator=document.createTextNode(' · ');
+    const button=document.createElement('button');
+    button.type='button';
+    button.className='backup-link';
+    button.textContent='加速下载 ↓';
+    button.title='网页会先下载并校验文件';
+    status.before(separator,button);
+    button.addEventListener('click',()=>download(link,item,button));
+  });
 })();
