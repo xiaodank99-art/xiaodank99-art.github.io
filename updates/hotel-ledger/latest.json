@@ -1,8 +1,8 @@
 {
-  "version": "1.2.35",
-  "package": "hotel-ledger-v1.2.35.exe",
-  "sha256": "7db1687aeb57617f45b1a08132eb08a633fa9f4594103aa91faeef204c33a6a4",
-  "size": 214528,
-  "notes": "房间收入排序时可拖到中间删除区，确认后移除卡片，保留房间历史账目。",
-  "signature": "LqGA+RP5RKYhqXtuM94aurN1vSMc9tI23Sz3YbOQLHyx5QxUyoQMfLfxj26TS+ZxNuLAfd1rd8qCZ6sZ22msHGDB58XGgUaV8rrS6s/CbwDaEnpwo9xWR/ZNFTorZsaSQwB5Tm7rbAYMPIdXmFhK0maLVhL2CeUqQmmYmKdNBh8UEHLnjXSBs8jiqjv450lYIGL02ET4ZL6QkYOF+48evWI/GuP772492uxvCk4Fyzz02MtLAvBvn9fZtVrS8SVrNOyZvdDgS1PDgyoBvAWBzbK76ybSukStQ90R26ap2QS3vGM1gAT5JIjggjaIOrAyW+J+wgycK03gbLzjExAd+baYGJla9jxacTHArUXZVcYZDYVDj5VHZ++SPsTo5kSP9PunM3dgXsZp6XerSHMecMH59XGWRJ0TuVu/ISmxBrP7/99xMPIPzyzDz3anpgya8bUGSPl1+c/FyHQ0lYs5V5wQBSD6pIDOCknudvb62ya9s4YjDHN1Y0Ioz/qfbHI6"
+  "version": "1.2.36",
+  "package": "hotel-ledger-v1.2.36.exe",
+  "sha256": "8af14dffe0a0ff206c729685a046913f0cd1009890eff45813bb52d5310f129e",
+  "size": 216576,
+  "notes": "新增设备同步试用入口，可用独立模拟账本测试安卓和 Windows 双向同步，原本机账本按原目录使用。",
+  "signature": "JBJbIkCpUhh46trK/VSJKX0Oh+xL7CLWu+1lxvYFlBLKjm/vBY0l/Qy0Xtk2TcQYU/pExmcKvKUEQaNWJBoyyKRktC8602xykQDuXFQGv4fPpkD4Re/HxJCgJ6FrH/H6LgAvqZitid2XlsxF42PunViEak/HnnnUgNF09wSqPmGJRk3eiONbuTmBC0QHvY0Wr1j2Sz9WF6JX7URh/R8YEtMHV5SpM1fpXcH2C1crD7f+gEfGi/ED74+fr5GEAycYMN94z75CGlAlvqPWGv3J8UQs9ztFoIA1YCWasvUe8YInfCGHYZzJQaJd8/biWwHYvGqNQZ+3wsDFpiPl5xYPqdoFYQg9AQ+RW60CJ9r3aFbF1bETEUvc+6lPI5FX2UGVhmrApptV7mAZ6/WGoCFggkV03ndZw2ua9OiAWQ/Z0O0hLdgkfyhpuaBZAGJdpxJg4ELB7SitV0iAkMZX+WlZ2yF7+o/hmn/2x8rQBD00d+ZrBAgy0y8HS6JdcLSR0/tq"
 }
