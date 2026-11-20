@@ -18,6 +18,23 @@
       "cover": "",
       "status": "removed",
       "removed_at": "2026-11-13 04:21"
+    },
+    {
+      "id": "f8869d2ba85c0fd4",
+      "name": "酒店前台记账",
+      "version": "1.2.31",
+      "description": "酒店前台桌面工具，用于日常收支、库存和待办记录。此下载为已有安装的升级包。升级后，在设置中的「软件更新」填写 https://zwjbox.cn/updates/hotel-ledger/ ，软件启动时会检查新版。",
+      "platform": "Windows 64 位（已安装旧版的前台电脑）",
+      "notes": "新增软件更新。配置更新地址后，启动时检查新版，确认安装后会先备份账本，再重新打开软件。",
+      "date": "2026-11-20 22:21",
+      "size": 193122,
+      "sha256": "f5ec4f4e71c6900332e0472d5f55c90452c2b9775b945ddc2417d4baf9d80c4f",
+      "suffix": ".zip",
+      "url": "https://github.com/xiaodank99-art/xiaodank99-art.github.io/releases/download/extra-f8869d2ba85c0fd4-v1.2.31/extra-f8869d2ba85c0fd4-1.2.31.zip",
+      "prefix": "",
+      "parts": 0,
+      "cover": "",
+      "status": "active"
     }
   ],
   "hidden_builtins": []

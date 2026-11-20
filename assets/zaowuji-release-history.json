@@ -96,6 +96,16 @@
           "source": "https://github.com/xiaodank99-art/xiaodank99-art.github.io/commit/2dffdcc6d9f5c3b32fb661ad1aeb81abf1180fb1"
         }
       ]
+    },
+    "f8869d2ba85c0fd4": {
+      "name": "酒店前台记账",
+      "entries": [
+        {
+          "version": "1.2.31",
+          "date": "2026-11-20 22:21",
+          "notes": "新增软件更新。配置更新地址后，启动时检查新版，确认安装后会先备份账本，再重新打开软件。"
+        }
+      ]
     }
   }
 }
