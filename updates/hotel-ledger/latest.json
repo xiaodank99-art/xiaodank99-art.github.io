@@ -1,8 +1,8 @@
 {
-  "version": "1.2.33",
-  "package": "hotel-ledger-v1.2.33.exe",
-  "sha256": "55f1c7a1866117cfb7ac318373a3756407934cff7c9c5fb382a5cb77aa9fb22d",
-  "size": 208384,
-  "notes": "启动时自动检查更新；有新版时自动安装并重启，断网时照常记账。",
-  "signature": "hvzsa4cw/JofCkNBgxURTCQccs0kaiBf4n5YGMlA2TyHVIquA0l4aYYjsT6DN2A5e/LReyq//6ZW1BXlhaVoq4P7+jQVvI6nVGmGNs1S2qQpc3iO8k69YDsbQKBSvF/Y4aAMhVbbxsWgqZZGtmiDLcadYX1mlbGlOecv9VABIRNDs3Wx9g4sazTm8m5O5TqMKixFUZvnVTu+Wby0WdpR5ZkdVVJinXqFYa46tX+A4Ng5Gjh2XX0qfKfa2Hzgtoj4b7/nhK2Pq367TnDzXbLtR+L1jeN8avBp4erHJUTkDOodz8uBG1dcxNAjOqZRIqbS7Xfbk1/4NdNusRlMajVEFA+guec8BGm7/WTvxP0IlbkAeGyzaBSR4zHhHIR4ZeS31nf8yRF1gcerXA8s4sxGb0V5IxOMOBNo6dJMgJdf+Lj+qn5MgIxJ8jDjrq8bokHBZb95r00ZEG+pUQGRtsn92eEqC3aiSfrrQRffTclZCK08pQAh6GQfZ0qod/2HaR95"
+  "version": "1.2.35",
+  "package": "hotel-ledger-v1.2.35.exe",
+  "sha256": "7db1687aeb57617f45b1a08132eb08a633fa9f4594103aa91faeef204c33a6a4",
+  "size": 214528,
+  "notes": "房间收入排序时可拖到中间删除区，确认后移除卡片，保留房间历史账目。",
+  "signature": "LqGA+RP5RKYhqXtuM94aurN1vSMc9tI23Sz3YbOQLHyx5QxUyoQMfLfxj26TS+ZxNuLAfd1rd8qCZ6sZ22msHGDB58XGgUaV8rrS6s/CbwDaEnpwo9xWR/ZNFTorZsaSQwB5Tm7rbAYMPIdXmFhK0maLVhL2CeUqQmmYmKdNBh8UEHLnjXSBs8jiqjv450lYIGL02ET4ZL6QkYOF+48evWI/GuP772492uxvCk4Fyzz02MtLAvBvn9fZtVrS8SVrNOyZvdDgS1PDgyoBvAWBzbK76ybSukStQ90R26ap2QS3vGM1gAT5JIjggjaIOrAyW+J+wgycK03gbLzjExAd+baYGJla9jxacTHArUXZVcYZDYVDj5VHZ++SPsTo5kSP9PunM3dgXsZp6XerSHMecMH59XGWRJ0TuVu/ISmxBrP7/99xMPIPzyzDz3anpgya8bUGSPl1+c/FyHQ0lYs5V5wQBSD6pIDOCknudvb62ya9s4YjDHN1Y0Ioz/qfbHI6"
 }
