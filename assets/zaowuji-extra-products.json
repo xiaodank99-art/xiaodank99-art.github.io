@@ -20,6 +20,23 @@
       "removed_at": "2026-11-13 04:21"
     },
     {
+      "id": "1b975d395758dd1a",
+      "name": "回看",
+      "version": "1.0.2",
+      "description": "本地视频与图文笔记工具，支持导入抖音、小红书、快手和 B 站作品，整理收藏和待办。完整解压后运行「回看.exe」，首次启动会下载本地分析模型。",
+      "platform": "Windows x64",
+      "notes": "首次在网站发布。检测到新版后会自动下载并提醒，下次打开时自动安装。",
+      "date": "2026-11-25 09:53",
+      "size": 215605164,
+      "sha256": "28709b4f3ee74a113bf6f23bcab9f112ad1007087b53ceed5ef928fc404d1807",
+      "suffix": ".zip",
+      "url": "https://github.com/xiaodank99-art/xiaodank99-art.github.io/releases/download/extra-1b975d395758dd1a-v1.0.2/extra-1b975d395758dd1a-1.0.2.zip",
+      "prefix": "",
+      "parts": 0,
+      "cover": "",
+      "status": "active"
+    },
+    {
       "id": "f8869d2ba85c0fd4",
       "name": "酒店前台记账",
       "version": "1.2.39",
