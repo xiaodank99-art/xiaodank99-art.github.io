@@ -1,8 +1,8 @@
 {
-  "version": "1.2.37",
-  "package": "hotel-ledger-v1.2.37.exe",
-  "sha256": "7594f30d2c9b080033f78391988f2894f77024b8a64629caa2d319e31105b77a",
-  "size": 222720,
-  "notes": "设备同步支持正式账本，前台确认启用后可绑定安卓。启用前沿用本机账本。",
-  "signature": "YO4HFdav0Qth95ZfWhv6v0cT7XJamx6IeTp4Ra5dVVtMwt3kjxH7aQYg0Zap0DDXdlkiMKS64jEloP9vZECyZWnDgQiiuWyeXh+fJU7ggWCvt1+DgEpxhJIBsPW6lAhhUk42No/NzHrrmr5mu+WMR4fupow1bSnFo3115okDEJqkfwIKUVnlMOUzG4aDQVWVjrwu7Gi5Vph3UjIhUxTZNzRYLVW9rYaQuVr59KJvg+r014VvIeqsCskzmBJD5jybQgoFdXY+6n+AuB+gKuUZqO8BlWeFRTLRQaNBVikKMevVXdr163naeqgcBYtpMQIcT/P4i/zatmvuo7cbi2+8jcH/3V7IoFDxWfrBYERy0R+P4bv0TlA9LMb6QT3FocCo8v2oUYRnechuIJpI1fGz0fbHP9K7W38WP7S2fbLtvzLhVULSdzdvF0OtxpR2+TSTyOwHfihIu1VCpVyrv2ZNv5mLoB1zMSD/B2MxjL/wp4jWnUNQZWwNzKOBBC1ciHKK"
+  "version": "1.2.39",
+  "package": "hotel-ledger-v1.2.39.exe",
+  "sha256": "8f9b2f26f01d119c442af647caf8a6b3c27fddbd470aef400943d1db0ba9cab8",
+  "size": 230912,
+  "notes": "新增记账本，支持挂账、分次收款和批量结账。修复首次启用设备同步时上传中断后的恢复。",
+  "signature": "17KRIFYlVGsnsxbljv0AkGjEwQSmpJAsEqdT0hQLnlfU4AIRa7G3wKRcquViLsi1DtHAYS4MipXCB9tpCHqziK48h3tMxOi4OzLY5BZ1E5tp4+8su1Xt0p/0JnjqIS1msy39UUTEl4HLN4GMKVVygKRP9DcC9R1LVNPlEwkrMgB5qtYikeZUDee7iIUE7jIyl/YjlOgccq8WbXGt10cso+7p68CfQX6UclhzKLY5+Xm34NPEBazqkLKP2frbo/EHiwiC9c0Pum/AtvdhR1S5V6GRnSFaUeAoTqhIIAp/LdquX2n1YkrhikRfWZa3hcSDPB5ua7QmQ92Gps/cNJYTi7M9hcFAr0hok202AK6tGHEdyqbGu86yNuX1spG4p8hJVUTR06m598UuHHb1WJKlOK0TfAPuhOkffIiV+Ta8ImMNS2ZIMO3zTJZZVwqm3FT/sTE4QxG5habdgrrKdBkGiKFuePn7Q7HC7IPt9bmpw+It49xTijnKuARhwXCaiyqG"
 }
